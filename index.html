@@ -20,35 +20,46 @@
     <title>Carosello</title>
   </head>
 
-
-
-
   <body>
-
     <!-- VUE -->
     <div id="app">
-        <div class="container-fluid">
-            <div class="carosello">
-              
-                <h1 class="text-dark text-center ">Scegli il tuo Gioco</h1>
-                <div class="gallery row d-flex justify-content-center mt-5">
-                  <div class="col-3 position-relative">
-                    <figure v-for="(pic,index) in pictures v-show="currentindex === index">
-                        <i class="fa-solid fa-arrow-left" id="prev" @click="goToPrev"></i>
-                        <img  :src="pic.url" :alt="pic.descrizione" :titolo="pic.titolo" :class="currentIndex === index ? 'active' : 'd-none'" />
-                        <figcaption>
-                            <h2> {{pic.titolo}}</h2>
-                            <p>{{pic.descrizione}}</p>
-                            <i class="fa-solid fa-arrow-right" id="next" @click=" goToNext"></i>
-                        </figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
+      <div class="container-fluid">
+        <div class="carosello">
+          <h1 class="text-dark text-center">Scegli il tuo Gioco</h1>
+          <div class="gallery row d-flex justify-content-center mt-5">
+            <div class="col-3 position-relative">
+              <figure
+                v-for="(pic,index) in pictures"
+                v-show="currentindex === index"
+              >
+                <i
+                  class="fa-solid fa-arrow-left"
+                  id="prev"
+                  @click="goToPrev"
+                  v-show="currentindex"
+                ></i>
+                <img
+                  :src="pic.url"
+                  :alt="pic.descrizione"
+                  :titolo="pic.titolo"
+                  :class="currentIndex === index ? 'active' : 'd-none'"
+                />
+                <figcaption>
+                  <h2>{{pic.titolo}}</h2>
+                  <p>{{pic.descrizione}}</p>
+                  <i
+                    class="fa-solid fa-arrow-right"
+                    id="next"
+                    @click=" goToNext"
+                  ></i>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-    
+
     <!-- LINK VUE -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- JS -->
